@@ -88,7 +88,7 @@ public class SubtypeAction extends ActionSupport  {
 	
 	public String deleteSubtype()
 	{
-		subtypeManage.deleteSubtype(id);
+		subtypeManage.deleteSubtype(subtype);
 		return "success";
 	}
 	

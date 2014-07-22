@@ -23,6 +23,7 @@ table tbody tr td {
 	padding: 3px;
 }
 </style>
+
 </head>
 <body>
 	<h2>Subtype List</h2>
@@ -31,6 +32,7 @@ table tbody tr td {
 			<thead>
 				<tr>
 					<th>选择</th>
+					<th>课程类别细类ID</th>
 					<th>课程类别细类码</th>
 					<th>课程类别细类名</th>
 					<th>所属类别</th>
@@ -42,19 +44,21 @@ table tbody tr td {
 			<tbody>
 				<s:iterator value="subtypeList">
 					<tr>
-						<td><input type="checkbox" name="subtypeid" value='<s:property value="subtypeid" />' /></td>
+						<td><input type="checkbox" name="Subtype" value='<s:property value="Subtype" />' /></td>
+						<td><s:property value="id" /></td>
 						<td><s:property value="subtypecode" /></td>
 						<td><s:property value="subtypename" /></td>
 						<td><s:property value="belongtotype" /></td>
 						<td><s:property value="ispublicsubtype" /></td>
 						<td><s:property value="department" /></td>
-						<td><a href='<s:url action="modifySubtype_action"><s:param name="id" value="subtypeid" /></s:url>'>Edit </a> &nbsp; 
-						<a href='<s:url action="deleteSubtype_action"><s:param name="id" value="subtypeid" /></s:url>'>Delete </a></td>
+						<td><a href="security/license!findById?id=<s:property value='id'/>" >修改</a> &nbsp;
+     					<a href="security/license!deleteSubtype?id=<s:property value='id'/>" onclick="return confirm('确认删除?')">删除</a></td>
+						
 					</tr>
 				</s:iterator>
 			</tbody>
 		</table>
-		<s:submit value="Remove" />
+		<s:submit value="Delete" />
 		<a href="Edit.jsp">Add Subtype</a>
 	</s:form>
 </body>

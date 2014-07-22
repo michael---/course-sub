@@ -2,10 +2,14 @@ package com.course.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
  
+
+import org.hibernate.criterion.Restrictions;
+
 import com.course.entity.Subtype;
 
 public class SubtypeDaoImp implements ISubtypeDao {
@@ -23,19 +27,26 @@ public class SubtypeDaoImp implements ISubtypeDao {
 	
 	@Override
 	public void addSubtype(Subtype subtype) {
-		getSession().persist(subtype);
+		this.getSession().save(subtype);
+		
 	}
 	
 	@Override
-	public void deleteSubtype(Integer id){
-		Subtype subtype = (Subtype)getSession().get(Subtype.class, id);
+	public void deleteSubtype(Subtype subtype){
+		
+		Criteria criteria = getSession().createCriteria(Subtype.class);
+		criteria.add(Restrictions.eq("id", subtype.getId()));	
+		subtype = (Subtype)criteria.uniqueResult();
 		getSession().delete(subtype);
 	}
 	
 	@Override
 	public void modifySubtype(Subtype subtype) {
-		//getSession().clear();
-		getSession().update(subtype);
+		
+		Criteria criteria = getSession().createCriteria(Subtype.class);
+		criteria.add(Restrictions.eq("id", subtype.getId()));
+		
+		
 	}
 	
 	@SuppressWarnings("unchecked")
