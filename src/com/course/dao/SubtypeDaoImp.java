@@ -32,20 +32,28 @@ public class SubtypeDaoImp implements ISubtypeDao {
 	}
 	
 	@Override
-	public void deleteSubtype(Subtype subtype){
+	public void deleteSubtype(Integer id){
 		
+		System.out.println(id);
+		
+		Subtype subtype = (Subtype)getSession().get(Subtype.class, id);
+		getSession().delete(subtype);
+		
+		/*
 		Criteria criteria = getSession().createCriteria(Subtype.class);
 		criteria.add(Restrictions.eq("id", subtype.getId()));	
 		subtype = (Subtype)criteria.uniqueResult();
 		getSession().delete(subtype);
+		*/
 	}
 	
 	@Override
 	public void modifySubtype(Subtype subtype) {
-		
+		getSession().update(subtype);
+		/*
 		Criteria criteria = getSession().createCriteria(Subtype.class);
 		criteria.add(Restrictions.eq("id", subtype.getId()));
-		
+		*/
 		
 	}
 	

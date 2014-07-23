@@ -21,12 +21,12 @@ public class SubtypeActionTest {
 		subtypeDao = (ISubtypeDao) ctx.getBean("subtypeDao");
 	}
 
-	
+	/*
 	@Test
 	public void addSubtype() {
 		subtypeDao.addSubtype(new Subtype(null, "课程类别细类码5", "核心通识","公选","是","管院"));
 	}
-	
+	*/
 	
 	/*
 	@Test

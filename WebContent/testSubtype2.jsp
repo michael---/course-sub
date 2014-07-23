@@ -44,7 +44,7 @@ table tbody tr td {
 			<tbody>
 				<s:iterator value="subtypeList">
 					<tr>
-						<td><input type="checkbox" name="Subtype" value='<s:property value="Subtype" />' /></td>
+						<td><input type="checkbox" name="id" value='<s:property value="id" />' /></td>
 						<td><s:property value="id" /></td>
 						<td><s:property value="subtypecode" /></td>
 						<td><s:property value="subtypename" /></td>

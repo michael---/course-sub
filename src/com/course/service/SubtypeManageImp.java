@@ -26,8 +26,8 @@ public class SubtypeManageImp implements ISubtypeManage {
 	}
 	
 	@Override
-	public void deleteSubtype (Subtype subtype) {
-		subtypeDao.deleteSubtype (subtype);
+	public void deleteSubtype (Integer id) {
+		subtypeDao.deleteSubtype (id);
 	}
 	
 	@Override

@@ -16,6 +16,7 @@ public class Subtype {
 	private String ispublicsubtype;	//是否公共细类
 	private String department;		//设立单位
 	
+	/*
 	public Subtype(){
 		
 	}
@@ -28,6 +29,7 @@ public class Subtype {
 		this.ispublicsubtype = ispublicsubtype;
 		this.department = department;
 	}
+	*/
 	
 	@Column(name="subtypecode", length=10, nullable=false)
 	public String getSubtypecode (){
@@ -82,7 +84,7 @@ public class Subtype {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 }
