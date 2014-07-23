@@ -20,7 +20,6 @@ public class SubtypeAction extends ActionSupport  {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Subtype subtype;
-	Integer id;
 	private List<Subtype> subtypeList;
 	private List<Subtype> findBySubtypenameList;
 	private List<Subtype> findByBelongtotypeList;
@@ -88,7 +87,7 @@ public class SubtypeAction extends ActionSupport  {
 	
 	public String deleteSubtype()
 	{
-		subtypeManage.deleteSubtype(id);
+		subtypeManage.deleteSubtype(subtype);
 		return "success";
 	}
 	
@@ -100,7 +99,7 @@ public class SubtypeAction extends ActionSupport  {
 	
 	public String getAllSubtypes(){
 		setSubtypeList(subtypeManage.getAllSubtypes());
-		return "success";
+		return "allsubtype";
 	}
 	
 	public String findBySubtypename(String name){

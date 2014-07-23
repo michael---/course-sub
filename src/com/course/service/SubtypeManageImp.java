@@ -21,13 +21,13 @@ public class SubtypeManageImp implements ISubtypeManage {
 	}
 	
 	@Override
-	public void addSubtype (Subtype subtype) {
-		subtypeDao.addSubtype (subtype);
+	public void addSubtype(Subtype subtype) {
+		subtypeDao.addSubtype(subtype);
 	}
 	
 	@Override
-	public void deleteSubtype (Integer id) {
-		subtypeDao.deleteSubtype (id);
+	public void deleteSubtype (Subtype subtype) {
+		subtypeDao.deleteSubtype (subtype);
 	}
 	
 	@Override
