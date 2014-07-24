@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>	
+	<package name="coursetypeActions" namespace="/" extends="abstract_struts">
+		<action name="coursetype_queryCoursetype" class="coursetypeAction" method="">
+			<result name="querycoursetype" type="redirect">/type_manage.jsp</result>
+			<result name="fail">/fail.jsp</result>
+			<interceptor-ref name="myInterceptor" />
+		</action>
+		<action name="coursetype_*" class="coursetypeAction" method="{1}">
+			<result name="success" type="redirectAction">type_manage</result>
+			<result name="fail">/fail.jsp</result>
+			<interceptor-ref name="myInterceptor" />
+		</action>
+	</package>
+	
+	
+</struts>

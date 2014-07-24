@@ -5,19 +5,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
-import org.springframework.web.client.HttpServerErrorException;
 
 import com.course.entity.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class LoginAction extends ActionSupport {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
 	private User user;
 	
 	public User getUser() {
@@ -28,6 +21,7 @@ public class LoginAction extends ActionSupport {
 		this.user = user;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public String execute() throws Exception {
 		
@@ -35,16 +29,16 @@ public class LoginAction extends ActionSupport {
 		
 		System.out.println(request.getCharacterEncoding());
 		
-		if("root".equals(user.getName()) && "11331048".equals(user.getPassword()))
+		if("root".equals(user.getName()) && "root123".equals(user.getPassword()))
 		{
-			Map<String, Object> session=ActionContext.getContext().getSession();
+			Map session=ActionContext.getContext().getSession();
 			session.put("user.name", user.getName());
 			
-			System.out.println("登录成功,用户名=" + user.getName());
+			System.out.println("登录成功,用户名="+user.getName());
 			return "success";
 		}
 		
-		System.out.println("登录失败，用户名=" + user.getName());
+		System.out.println("登录失败，用户名="+user.getName());
 		return "fail";
 	}
 	

@@ -6,14 +6,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
-
-//Î´ÐÞ¸Ä£¡
 public class CheckLogin implements Interceptor {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	@Override
 	public void destroy() {
@@ -29,7 +22,7 @@ public class CheckLogin implements Interceptor {
 	@Override
 	public String intercept(ActionInvocation arg0) throws Exception {
 		
-		//System.out.println("------CheckLogin.intercept------");
+		System.out.println("------CheckLogin.intercept------");
 		
 		Map session=ActionContext.getContext().getSession();
 		//Map userinfo=arg0.getInvocationContext().getParameters();
@@ -40,7 +33,6 @@ public class CheckLogin implements Interceptor {
 		
 		if(session.get("user.name")!=null)
 		{
-			System.out.println("------CheckLogin.intercept------");
 			return arg0.invoke();
 		}
 		

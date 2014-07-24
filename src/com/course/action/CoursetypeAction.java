@@ -1,6 +1,6 @@
 package com.course.action;
 
-import java.util.List;
+import java.util.*;
 
 import javax.annotation.Resource;
 
@@ -11,21 +11,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CoursetypeAction extends ActionSupport  {
 	
 	private Coursetype coursetype;
-	private List<Coursetype> courses;
-	private Integer id;
+	private List<Coursetype> coursetypes;
 	
 	@Resource
-	private ICoursetypeManage coursetypeM;
-
-	public void setICoursetypeM (ICoursetypeManage coursetypeM) {
-		this.coursetypeM = coursetypeM;
-	}
-	
-	public ICoursetypeManage getICoursetypeM() {
-		return coursetypeM;
-	}
-	
-	
+	private ICoursetypeManage coursetypeManage;
+		
 	public Coursetype getCoursetype() {
 		return coursetype;
 	}
@@ -34,26 +24,51 @@ public class CoursetypeAction extends ActionSupport  {
 		this.coursetype = coursetype;
 	}
 
+	public List<Coursetype> getCoursetypes() {
+		return coursetypes;
+	}
+
+	public void setCoursetypes(List<Coursetype> coursetypes) {
+		this.coursetypes = coursetypes;
+	}
+
+	public ICoursetypeManage getCoursetypeManage() {
+		return coursetypeManage;
+	}
+
+	public void setCoursetypeManage(ICoursetypeManage coursetypeManage) {
+		this.coursetypeManage = coursetypeManage;
+	}
+	
+
 	public String addCoursetype()
-	{		
-		coursetypeM.addCoursetype(coursetype);
+	{
+		System.out.println("-------CoursetypeAction add------");
+		if(coursetypeManage!=null){
+			coursetypeManage.addCoursetype(coursetype);
+		}
+		else{
+			System.out.println("coursetypeManage is null");
+		}
 		return "success";
 	}
 	
 	public String deleteCoursetype()
 	{
-		coursetypeM.deleteCoursetype(id);
+		coursetypeManage.deleteCoursetype(coursetype);
 		return "success";
 	}
 	
-	public String modifyCourseType()
+	public String modifyCoursetype()
 	{
-		coursetypeM.modifyCoursetype(coursetype);
+		coursetypeManage.modifyCoursetype(coursetype);
 		return "success";
 	}
 	
-	public List<Coursetype> getAllCoursetypes(){
-		return courses;
+	public String getAllCoursetypes(){
+		coursetypes = coursetypeManage.getAllCoursetypes();
+		return "allcoursetype";
 	}
+
 	
 }
